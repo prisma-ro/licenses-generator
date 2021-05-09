@@ -18,8 +18,7 @@ It walks the given directory and searches for license files, and after it's done
 it will write all of them to a new file, following the given template.
 
 ### Compatibility
-At this time, it's only been tested on JS project (the default folder in
- `DefaultTemplate` is `node_modules`), but it should be compatible with anything
+At this time, it's only been tested on JS project (the default folder is `node_modules`), but it should be compatible with anything
  that stores licenses locally.
 
 # Usage

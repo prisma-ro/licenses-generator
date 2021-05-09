@@ -17,10 +17,10 @@ from `main`.
 2. If you've added code that should be tested, add some test examples.
 3. Ensure to describe your pull request.
 4. Make sure it passes all tests
-5. Create a pull request :tada:
+5. Submit the pull request :tada:
 
 ## License
-By contributing to DogeHouse, you agree that your contributions will be licensed
+By contributing to generate_licenses, you agree that your contributions will be licensed
 under the [Apache 2.0 LICENSE](LICENSE).
 
 ## Contact
