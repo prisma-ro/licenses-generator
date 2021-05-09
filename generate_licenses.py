@@ -239,7 +239,7 @@ class Generator:
         """
         Interate trough subfolders to find all license files
 
-        Credits: https://stackoverflow.com/questions/19932130/iterate-through-folders-then-subfolders-and-print-filenames-with-path-to-text-f  
+        Credits: https://stackoverflow.com/questions/19932130/iterate-through-folders-then-subfolders-and-print-filenames-with-path-to-text-f  # noqa: E501
 
         Args:
             dir (str): directory to search in
