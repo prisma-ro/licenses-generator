@@ -6,7 +6,8 @@ Generate a file containing all (locally found) licenses from your project
 CLI: generate_licenses.py -h
 
 Recomanded:
-    from generate_licenses import Generator, Template <- Or you can use DefaultTemplate
+    from generate_licenses import Generator, Template <- Or you can use
+DefaultTemplate
 
     template = Template(
         wrapper_template='<div>\n$ctnt\n</div>',
@@ -47,7 +48,7 @@ import getopt
 from typing import List
 
 # Defaults:
-INITIAL_DIR = 'node_moduless'
+INITIAL_DIR = 'node_modules'
 OUT_FILE = 'LICENSES.txt'
 OUT_SEPARATOR = '\n----------\n'
 
@@ -63,7 +64,7 @@ Usage:
     -h          --help : Show this message
 
 Note:
-    When the CLI is used, the template will always be DefaultTemplate and the 
+    When the CLI is used, the template will always be DefaultTemplate and the
     separator will be \\n----------\\n
 """
 
@@ -86,22 +87,24 @@ class Template:
                  title_template: str, license_template: str
                  ) -> None:
         """
-        Template for a written file. Each template must contain a $ctnt which is
-        going to be replaced with the actual content.
+        Template for a written file. Each template must contain a $ctnt which
+        is going to be replaced with the actual content.
 
         Args:
             license (License): License object
-            wrapper_template (str, optional): Wraps the entire license. Defaults to None.
+            wrapper_template (str, optional): Wraps the entire license.
+            Defaults to None.
             title_template (str): Wraps the title
             license_template (str): Wraps the license
 
-        Example (it's best to see actual source):
-
-wrapper_template = '<div>\n$ctnt\n</div>'
-title_template = '<h1>$ctnt</h1>\n'
-license_template = '<pre>\n<code>\n$ctnt\n</code>\n</pre>'
-
+        Example:
+```py
+wrapper_template = '<div>\\n$ctnt\\n</div>'
+title_template = '<h1>$ctnt</h1>\\n'
+license_template = '<pre>\\n<code>\\n$ctnt\\n</code>\\n</pre>'
+```
         Will generate the following:
+```html
 <div>
 <h1>PACKAGE_NAME</h1>
 <pre>
@@ -110,6 +113,7 @@ LICENSE
 </code>
 </pre>
 </div>
+```
         """
         self.license = None
         self.wrapper_template = wrapper_template
@@ -144,7 +148,7 @@ LICENSE
         Returns:
             str: Reprezentation
         """
-        if self.license == None:
+        if self.license is None:
             raise Exception("License not binded to Template!")
         return self.title_template.replace('$ctnt', self.license.package_name)
 
@@ -171,16 +175,19 @@ class DefaultTemplate(Template):
 
 
 class Generator:
-    def __init__(self, template: Template, initial_dir: str, out_file: str, out_separator: str = "") -> None:
+    def __init__(self, template: Template, initial_dir: str, out_file: str,
+                 out_separator: str = ""
+                 ) -> None:
         """
-        Generate Licenses - Search for all LICENSE files in a given directory, and
-        write them to a file.
+        Generate Licenses - Search for all LICENSE files in a given directory,
+        and write them to a file.
 
         Args:
             template (Template): Template to follow
             initial_dir (str): Directory to walk from
             out_file (str): File to write licenses into
-            out_separator (str, optional): Written in between licenses. Defaults to "".
+            out_separator (str, optional): Written in between licenses.
+            Defaults to "".
         """
         print(
             f"Looking for licenses in {initial_dir} and writing to {out_file}")
@@ -232,7 +239,7 @@ class Generator:
         """
         Interate trough subfolders to find all license files
 
-        Credits: https://stackoverflow.com/questions/19932130/iterate-through-folders-then-subfolders-and-print-filenames-with-path-to-text-f
+        Credits: https://stackoverflow.com/questions/19932130/iterate-through-folders-then-subfolders-and-print-filenames-with-path-to-text-f  
 
         Args:
             dir (str): directory to search in
@@ -254,15 +261,18 @@ def run(initial_dir, out_file) -> None:
     start = time.perf_counter()
     print("(C) Prisma 2021 - License File Generator")
 
-    generator = Generator(DefaultTemplate(), initial_dir, out_file, OUT_SEPARATOR)
+    generator = Generator(DefaultTemplate(), initial_dir,
+                          out_file, OUT_SEPARATOR)
     generator.write_licenses()
 
     end = time.perf_counter()
     print(f"Done in {round((end - start), 3)} ms")
 
+
 def main(argv):
     try:
-        opts, args = getopt.getopt(argv,"hdi:o:",["input=","outfile=", "default", "help"])
+        opts, args = getopt.getopt(
+            argv, "hdi:o:", ["input=", "outfile=", "default", "help"])
     except getopt.GetoptError:
         print(HELP_MSG)
         sys.exit(1)
@@ -284,6 +294,7 @@ def main(argv):
 
     run(initial_dir, out_file)
     sys.exit(0)
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
