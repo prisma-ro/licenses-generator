@@ -1,6 +1,14 @@
 # licenses-generator
 Generate a file containing all (locally found) licenses from your project
 
+<p align=center>
+    <img src="https://img.shields.io/badge/version-1.1-blue" />
+    <a href="https://github.com/prisma-ro/licenses-generator/actions/workflows/run_tests.yaml">
+        <img src="https://github.com/prisma-ro/licenses-generator/actions/workflows/run_tests.yaml/badge.svg" />
+    </a>
+    <img src="https://img.shields.io/badge/license-Apache%202-blue" />
+</p>
+
 # CLI
 `generate_licenses.py -h`
 
