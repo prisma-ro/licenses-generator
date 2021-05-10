@@ -19,7 +19,7 @@ DefaultTemplate
     generator.write_licenses()
 
 
-Author:
+Authors:
     David Pescariu <prisma.ro.official@gmail.com>
 
 License:
@@ -38,7 +38,7 @@ License:
     limitations under the License.
 """
 
-__version__ = 1.0
+__version__ = 1.2
 __author__ = "David Pescariu @ Prisma"
 
 import os

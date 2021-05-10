@@ -2,11 +2,15 @@
 Generate a file containing all (locally found) licenses from your project.
 
 <p align=center>
-    <img src="https://img.shields.io/badge/version-1.1-blue" />
+    <a href="https://pypi.org/project/generate-licenses/">
+      <img src="https://img.shields.io/pypi/v/generate_licenses" />
+    </a>
     <a href="https://github.com/prisma-ro/licenses-generator/actions/workflows/run_tests.yaml">
         <img src="https://github.com/prisma-ro/licenses-generator/actions/workflows/run_tests.yaml/badge.svg" />
     </a>
-    <img src="https://img.shields.io/badge/license-Apache%202-blue" />
+    <a href="LICENSE">
+      <img src="https://img.shields.io/pypi/l/generate_licenses" />
+    </a>
 </p>
 
 # About
@@ -18,8 +22,16 @@ It walks the given directory and searches for license files, and after it's done
 it will write all of them to a new file, following the given template.
 
 ### Compatibility
-At this time, it's only been tested on JS project (the default folder is `node_modules`), but it should be compatible with anything
- that stores licenses locally.
+At this time, it's only been tested on a JS project (the default folder is 
+`node_modules`), but it should be compatible with anything that stores licenses 
+locally.
+
+As for OSs, it should be fully cross-platform, with a minimum python version of
+3.6 _(tests on ubuntu, macos, windows with python 3.6, 3.7, 3.8, 3.9)_
+
+# Install
+- Latest version from PyPI - `pip install generate_licenses -U` OR
+- Download it yourself from the [Releases](https://github.com/prisma-ro/licenses-generator/releases/) Page
 
 # Usage
 
@@ -37,7 +49,7 @@ generator = Generator(template, <initial_dir>, <out_file>, <out_separator>)
 generator.write_licenses()
 ```
 
-### CLI _(Not recomanded)_
+### CLI _(Not recomanded - Very limited)_
 See help: `generate_licenses.py -h`
 
 ---
