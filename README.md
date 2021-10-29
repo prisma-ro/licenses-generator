@@ -103,6 +103,6 @@ limitations under the License.
 
 <p align=center>
   <code>
-(C) Prisma 2021 - https://buyprisma.netlify.app/
+(C) Prisma 2021 - https://www.prisma-safety.com/
   </code>
 </p>
